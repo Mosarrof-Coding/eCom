@@ -1,17 +1,18 @@
 import { BsGearWide } from "react-icons/bs";
 import PropTypes from "prop-types";
 
-/* eslint-disable react/prop-types */
 export default function ColorPicker({ colorScheme, setColorScheme }) {
   const colorSchemes = {
-    "bg-red-600": "text-white",
-    "bg-green-600": "text-white",
-    "bg-blue-600": "text-white",
-    "bg-sky-600": "text-white",
-    "bg-yellow-600": "text-black",
-    "bg-purple-600": "text-white",
-    "bg-gray-800": "text-white",
-    "bg-emerald-600": "text-white",
+    "bg-pink-500": "text-white",
+    "bg-teal-500": "text-white",
+    "bg-orange-500": "text-black",
+    "bg-indigo-500": "text-white",
+    "bg-lime-500": "text-black",
+    "bg-rose-500": "text-white",
+    "bg-amber-500": "text-black",
+    "bg-violet-500": "text-white",
+    "bg-cyan-500": "text-white",
+    "bg-slate-600": "text-white",
   };
 
   const handleColorChange = (newBgColor) => {
@@ -20,46 +21,21 @@ export default function ColorPicker({ colorScheme, setColorScheme }) {
   };
 
   return (
-    <div className="mode fixed -right-28 hover:right-0 top-1/2 -translate-y-1/2 border transition-all duration-500">
-      <ul className="grid grid-cols-3 gap-3 p-3 relative">
-        <li
-          onClick={() => handleColorChange("bg-red-600")}
-          className="cursor-pointer bg-red-600 w-5 aspect-square rounded-full"
-        ></li>
-        <li
-          onClick={() => handleColorChange("bg-green-600")}
-          className="cursor-pointer bg-green-600 w-5 aspect-square rounded-full"
-        ></li>
-        <li
-          onClick={() => handleColorChange("bg-blue-600")}
-          className="cursor-pointer bg-blue-600 w-5 aspect-square rounded-full"
-        ></li>
-        <li
-          onClick={() => handleColorChange("bg-sky-600")}
-          className="cursor-pointer bg-sky-600 w-5 aspect-square rounded-full"
-        ></li>
-        <li
-          onClick={() => handleColorChange("bg-yellow-600")}
-          className="cursor-pointer bg-yellow-600 w-5 aspect-square rounded-full"
-        ></li>
-        <li
-          onClick={() => handleColorChange("bg-purple-600")}
-          className="cursor-pointer bg-purple-600 w-5 aspect-square rounded-full"
-        ></li>
-        <li
-          onClick={() => handleColorChange("bg-gray-600")}
-          className="cursor-pointer bg-gray-600 w-5 aspect-square rounded-full"
-        ></li>
-        <li
-          onClick={() => handleColorChange("bg-emerald-600")}
-          className="cursor-pointer bg-emerald-600 w-5 aspect-square rounded-full"
-        ></li>
+    <div className="mode z-[999] fixed -right-[136px] hover:right-0 top-1/2 -translate-y-1/2 border transition-all duration-500">
+      <ul className="grid grid-cols-3 gap-2 p-3 relative">
+        {Object.keys(colorSchemes).map((color) => (
+          <li
+            key={color}
+            onClick={() => handleColorChange(color)}
+            className={`cursor-pointer ${color} w-8 h-8 rounded-full`}
+          ></li>
+        ))}
         <div
-          className={`absolute right-full top-0 p-1.5 ${colorScheme.bgColor} rounded-s-lg`}
+          className={`absolute right-full top-0 p-2 ${colorScheme.bgColor} rounded-s-lg`}
         >
           <BsGearWide
             size={24}
-            className={` ${colorScheme.textColor} animate-spin`}
+            className={`${colorScheme.textColor} animate-spin`}
           />
         </div>
       </ul>
