@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: oxanium;
+  }
+  ul li {
+    list-style: none;
+  }
+  .contizer {
+    max-width: 1530px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  /* ============= */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .animate-spin {
+    animation: spin 3s linear infinite !important;
+  }
+  /* ================= */
+}
