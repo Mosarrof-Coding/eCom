@@ -5,10 +5,12 @@ import { IoChevronDown } from "react-icons/io5";
 export default function Header({ colorScheme }) {
   return (
     <header className={`${colorScheme.bgColor}`}>
-      <nav className={`py-3 lg:py-4 shadow-md ${colorScheme.textColor}`}>
+      <nav className={`py-1 lg:py-2 shadow-md ${colorScheme.textColor}`}>
         <div className="contizer px-4 lg:px-10">
           <div className="navMain flex justify-between items-center">
-            <div className="logo text-3xl font-black flex-shrink-0">eCom</div>
+            <h3 className="pacifico-regular text-xl lg:text-2xl font-bold w-fit drop-shadow-xl text-nowrap">
+              eCom Kids
+            </h3>
             <ul className="flex gap-6 items-center font-medium">
               {["Home", "Shop", "Blog", "About Us", "Wishlist"].map((item) => (
                 <li

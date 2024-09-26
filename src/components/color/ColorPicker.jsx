@@ -1,40 +1,42 @@
-import { BsGearWide } from "react-icons/bs";
+import { RxGear } from "react-icons/rx";
 import PropTypes from "prop-types";
 
 export default function ColorPicker({ colorScheme, setColorScheme }) {
   const colorSchemes = {
-    "bg-pink-500": "text-white",
-    "bg-teal-500": "text-white",
-    "bg-orange-500": "text-black",
+    "bg-blue-900": "text-yellow-500",
+    "bg-rose-800": "text-white",
+    "bg-orange-800": "text-purple-300",
     "bg-indigo-500": "text-white",
-    "bg-lime-500": "text-black",
-    "bg-rose-500": "text-white",
-    "bg-amber-500": "text-black",
-    "bg-violet-500": "text-white",
-    "bg-cyan-500": "text-white",
-    "bg-slate-600": "text-white",
+    // You can add more color schemes as needed
   };
 
   const handleColorChange = (newBgColor) => {
-    const newTextColor = colorSchemes[newBgColor] || "text-white";
-    setColorScheme({ bgColor: newBgColor, textColor: newTextColor });
+    const newTextColors = colorSchemes[newBgColor] || "text-white"; // Default to white if color not in schemes
+
+    setColorScheme({
+      bgColor: newBgColor,
+      textColor: newTextColors, // Set the corresponding text color
+    });
   };
 
   return (
-    <div className="mode z-[999] fixed -right-[136px] hover:right-0 top-1/2 -translate-y-1/2 border transition-all duration-500">
+    <div className="mode z-[999] fixed -right-[136px] hover:right-0 top-1/2 -translate-y-1/2 border transition-all duration-500 bg-white/70 shadow-lg">
       <ul className="grid grid-cols-3 gap-2 p-3 relative">
+        {/* Loop through available color schemes */}
         {Object.keys(colorSchemes).map((color) => (
           <li
             key={color}
             onClick={() => handleColorChange(color)}
-            className={`cursor-pointer ${color} w-8 h-8 rounded-full`}
+            className={`cursor-pointer ${color} w-8 h-8 rounded-full duration-300`}
           ></li>
         ))}
+
+        {/* Icon button */}
         <div
-          className={`absolute right-full top-0 p-2 ${colorScheme.bgColor} rounded-s-lg`}
+          className={`absolute right-full top-0 w-12 h-12 grid place-items-center border ${colorScheme.bgColor} rounded-s-lg transition-colors duration-300`}
         >
-          <BsGearWide
-            size={24}
+          <RxGear
+            size={28}
             className={`${colorScheme.textColor} animate-spin`}
           />
         </div>
