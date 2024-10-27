@@ -13,10 +13,10 @@ export default function Footer({ colorScheme }) {
               <div
                 className={`col-span-6 lg:col-span-4 ${colorScheme.textColor}`}
               >
-                <h3 className="pacifico-regular text-xl lg:text-2xl font-bold mb-2 lg:mb-3 w-fit drop-shadow-xl">
+                <h3 className="cursor-pointer pacifico-regular text-xl lg:text-3xl font-medium md:font-bold mb-2 lg:mb-3 w-fit drop-shadow-xl mix-blend-exclusion">
                   eCom Kids
                 </h3>
-                <p>
+                <p className={` ${colorScheme.textColor} text-opacity-80`}>
                   Enjoy stylish apparel for your sweet kids, perfect for every
                   occasion! Our collection ensures they look great and feel
                   comfortable in every sphere of their lives.
